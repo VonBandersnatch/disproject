@@ -87,19 +87,20 @@ def get_subframe(df_row):
         kolonnenavne bestemmes af konstanterne AFSTEMID, PARTI, FOR
     """
     # Create an empty new dataframe to hold contents of the parameter row
-    df = pd.DataFrame(columns=[AFSTEMID,PARTI,FOR])
+    # df = pd.DataFrame(columns=[AFSTEMID,PARTI,FOR])
     conclusion = unpack_conclusion(df_row['konklusion'])
     afstemningsid = df_row['id']
+    # Data is saved temporarily as a list of rows:
+    rows = []
     for parti in conclusion['Partier for']:
-        new_row = pd.DataFrame({AFSTEMID:[afstemningsid], PARTI:[parti], FOR:['For']})
-        df = pd.concat([df, new_row], ignore_index=True)
+        rows.append({AFSTEMID:afstemningsid, PARTI:parti, FOR:'For'})
     for parti in conclusion['Partier imod']:
-        new_row = pd.DataFrame({AFSTEMID:[afstemningsid], PARTI:[parti], FOR:['Imod']})
-        df = pd.concat([df, new_row], ignore_index=True)
+        rows.append({AFSTEMID:afstemningsid, PARTI:parti, FOR:'Imod'})
     for parti in conclusion['Partier hverken for eller imod']:
-        new_row = pd.DataFrame({AFSTEMID:[afstemningsid], PARTI:[parti], FOR:['Hverken']})
-        df = pd.concat([df, new_row], ignore_index=True)
-    return df
+        rows.append({AFSTEMID:afstemningsid, PARTI:parti, FOR:'Hverken'})
+
+    return pd.DataFrame(rows)
+
     
 def create_partistemmer():
     """ Indlæs 'Afstemning.csv', gennemløb denne.
@@ -107,10 +108,11 @@ def create_partistemmer():
         Resultat gemmes i Partistemmer.csv
     """    
     in_df =  pd.read_csv('Afstemning.csv')
-    out_df = pd.DataFrame(columns=[AFSTEMID,PARTI,FOR])
-    for i, row in in_df.iterrows():
+    frames = [] # will hold subframes to be concatenated to form out_df
+    for _, row in in_df.iterrows():
         new_data = get_subframe(row)
-        out_df = pd.concat([out_df, new_data], ignore_index=True)
+        frames.append(new_data)
+    out_df = pd.concat(frames, ignore_index=True)
     out_df.to_csv('Partistemmer.csv')
 
 
