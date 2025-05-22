@@ -10,7 +10,7 @@ password = os.environ.get('PGPASSWORD', '1763')
 host = os.environ.get('HOST', '127.0.0.1')
 defaultdbname = 'postgres'
 ftdbname = 'ft'
-filename = os.path.join('data','Partistemmer.csv')
+filename = os.path.join('data','afstemning_data_v3.csv')
 
 def db_connection(name):
     conn = psycopg2.connect(host = host, user = user, password = password, database = name)
@@ -37,6 +37,7 @@ def init_db():
     cursor = conn.cursor()
 
     df = pd.read_csv(filename)
+    cursor.execute('''DROP TABLE IF EXISTS afstemning''')
     cursor.execute('''CREATE TABLE IF NOT EXISTS afstemning (afstemningsid INT, parti TEXT, forimod TEXT)''')
     conn.commit()
 
