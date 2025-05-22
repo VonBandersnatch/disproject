@@ -1,7 +1,7 @@
 [project]
-name = "todos"
+name = "ft"
 version = "1.0.0"
-description = "A minimal todo application for the DIS 2025 course."
+description = "Voting data from Folketinget."
 dependencies = [
     "flask (==3.1.1)",
     "psycopg2 (==2.9.10)",
