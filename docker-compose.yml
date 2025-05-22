@@ -1,7 +1,7 @@
 services:
   # Our postgress container. This is pretty much a standard setting.
   database:
-    image: 'postgres:latest'
+    image: 'postgres:9.2'
     container_name: database
     restart: always
     healthcheck:

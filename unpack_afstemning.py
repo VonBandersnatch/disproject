@@ -11,9 +11,9 @@ VEDTAGET = {'vedtaget' : True, 'forkastet' : False}
 REGEX_1 = r"\s*(Vedtaget|Forkastet)\s*(\d+) stemmer for forslaget (\D*)\s*(\d+) stemmer imod forslaget(\D*)\s*(\d+) stemmer hverken for eller imod forslaget(\D*)\s*"
 REGEX_2 = r"\s*Forslaget blev (vedtaget|forkastet). For stemte (\d+) (\D*), imod stemte (\d+) ?(\D*), hverken for eller imod stemte (\d+)(\D*)"
 REGEX_3 = r"\s*(Vedtaget|Forkastet)\s* For stemte (\d+) (\D*)\s*imod stemte (\d+) (\D*)\s*hverken for eller imod stemte (\d+) (\D*)\s*"
-AFSTEMID = 'Afstemningsid'
-PARTI = 'Parti'
-FOR = 'For/imod/hverken'
+AFSTEMID = 'afstemningsid'
+PARTI = 'parti'
+FOR = 'stemme'
 
 def clean_and_strip(partiliste:str):
     """Argument: A string containing a list of parti designations separated by commas
