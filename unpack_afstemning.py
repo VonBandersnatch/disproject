@@ -104,7 +104,7 @@ def create_partistemmer():
     out_df = pd.concat(frames, ignore_index=True)
     # There are errors in the ft data: some data is repeated; remove this:
     out_df = out_df.drop_duplicates()
-    out_df.to_csv('hente tabeller/Partistemmer.csv')
+    out_df.to_csv('hente tabeller/Partistemmer_v3.csv')
 
 create_partistemmer()
 
