@@ -1,3 +1,4 @@
+from sqlalchemy import create_engine
 import psycopg2
 import os
 import pandas as pd
@@ -37,13 +38,39 @@ def init_db():
     cursor = conn.cursor()
 
     df = pd.read_csv(filename)
-    cursor.execute('''DROP TABLE IF EXISTS afstemning''')
-    cursor.execute('''CREATE TABLE IF NOT EXISTS afstemning (afstemningsid INT, parti TEXT, forimod TEXT)''')
+    cursor.execute('''DROP TABLE IF EXISTS PartiStemmer''')
+    cursor.execute('''CREATE TABLE IF NOT EXISTS PartiStemmer (afstemningsid INT, parti TEXT, stemme TEXT)''')
+    cursor.execute('''DROP TABLE IF EXISTS Afstemning''')
+    cursor.execute('''CREATE TABLE IF NOT EXISTS Afstemning (id INT, konklusion STRING, vedtaget BOOLEAN, kommentar STRING, modeid INT, typeid INT, sagstrinid INT, opdateringsdato DATETIME)''')    
+    cursor.execute('''DROP TABLE IF EXISTS Sagstrin''')
+    cursor.execute('''CREATE TABLE IF NOT EXISTS Sagstrin (id INT, sagid INT, typeid INT, opdateringsdato DATETIME)''')    
+    cursor.execute('''DROP TABLE IF EXISTS Sag''')
+    cursor.execute('''CREATE TABLE IF NOT EXISTS Sag (id INT, titelkort STRING, opdateringsdato DATETIME, typeid INT)''')    
     conn.commit()
 
-    cursor.execute("INSERT INTO afstemning (afstemningsid, parti, forimod) VALUES (4, 'V', 'Imod')")
+    df_PartiStemmer = pd.read_csv("data.csv")
+# Insert data into PostgreSQL
+    df_PartiStemmer.to_sql("my_table", con=conn, if_exists="replace", index=False)
+
+
+
+
+# Load the CSV data
+
+# Define the PostgreSQL connection URI
+DATABASE_URL = "postgresql://myuser:mypassword@localhost:5432/mydatabase"
+
+# Create the SQLAlchemy engine
+engine = create_engine(DATABASE_URL)
+
+
+
+
     for index, row in df.iterrows():
         cursor.execute("INSERT INTO afstemning (afstemningsid, parti, forimod) VALUES (%s, %s, %s)",(row['Afstemningsid'],row['Parti'], row['For/imod/hverken']))
+
+"""
+
 
     conn.commit()
     conn.close()
