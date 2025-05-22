@@ -50,10 +50,14 @@ def init_db():
 
     df_PartiStemmer = pd.read_csv("data.csv")
 # Insert data into PostgreSQL
-    df_PartiStemmer.to_sql("my_table", con=conn, if_exists="replace", index=False)
+    df_PartiStemmer.to_sql("PartiStemmer", con=conn, if_exists="replace", index=False)
+    df_Afstemning.to_sql("Afstemning", con=conn, if_exists="replace", index=False)
+    df_Sagstrin.to_sql("Sagstrin", con=conn, if_exists="replace", index=False)
+    df_Sag.to_sql("Sag", con=conn, if_exists="replace", index=False)
 
 
 
+"""
 
 # Load the CSV data
 
@@ -64,13 +68,10 @@ DATABASE_URL = "postgresql://myuser:mypassword@localhost:5432/mydatabase"
 engine = create_engine(DATABASE_URL)
 
 
-
-
     for index, row in df.iterrows():
         cursor.execute("INSERT INTO afstemning (afstemningsid, parti, forimod) VALUES (%s, %s, %s)",(row['Afstemningsid'],row['Parti'], row['For/imod/hverken']))
 
 """
-
 
     conn.commit()
     conn.close()
