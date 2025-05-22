@@ -96,7 +96,7 @@ def create_partistemmer():
         Argument & return value: None.
     """    
     # afstemninger.csv has no column names.
-    in_df =  pd.read_csv('afstemninger.csv', header=None, names = column_names)
+    in_df =  pd.read_csv('hente tabeller/afstemning_data_v2.csv', header=None, names = column_names)
     frames = [] # will hold subframes to be concatenated to form out_df
     for _, row in in_df.iterrows():
         new_data = get_subframe(row)
@@ -104,7 +104,7 @@ def create_partistemmer():
     out_df = pd.concat(frames, ignore_index=True)
     # There are errors in the ft data: some data is repeated; remove this:
     out_df = out_df.drop_duplicates()
-    out_df.to_csv('Partistemmer.csv')
+    out_df.to_csv('hente tabeller/Partistemmer.csv')
 
 create_partistemmer()
 
