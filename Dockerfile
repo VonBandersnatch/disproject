@@ -9,5 +9,8 @@ RUN apk add --no-cache gcc musl-dev linux-headers postgresql postgresql-contrib 
 COPY pyproject.toml pyproject.toml
 RUN pip install -e .
 
+
+
 # The entry point is called only when the container starts
- ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["flask", "run", "--host=0.0.0.0", "--debug"]
+#ENTRYPOINT ["./entrypoint.sh"]

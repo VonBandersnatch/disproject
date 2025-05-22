@@ -1,15 +1,15 @@
 services:
   # Our postgress container. This is pretty much a standard setting.
   database:
-    image: 'postgres:9.2'
+    image: 'postgres:latest'
     container_name: database
     restart: always
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB} -t 1"]
-      interval: 10s
-      timeout: 10s
-      retries: 10
-      start_period: 10s
+      interval: 2s
+      timeout: 2s
+      retries: 4
+      start_period: 2s
     volumes:
       - pgdata:/var/lib/postgresql/data
     environment:
