@@ -15,7 +15,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: '123'
-      POSTGRES_DB: todo
+      POSTGRES_DB: postgres
   # Our app container
   web:
     build:

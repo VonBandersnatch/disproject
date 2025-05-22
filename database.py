@@ -8,7 +8,7 @@ password = os.environ.get('PGPASSWORD', '123')
 host = os.environ.get('HOST', '127.0.0.1')
 
 def db_connection():
-    db = "dbname='todo' user=" + user + " host=" + host + " password =" + password
+    db = "dbname='postgres' user=" + user + " host=" + host + " password =" + password
     conn = psycopg2.connect(db)
 
     return conn
