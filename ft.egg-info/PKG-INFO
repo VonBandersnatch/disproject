@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: ft
+Version: 1.0.0
+Summary: Voting data from Folketinget.
+Requires-Dist: flask==3.1.1
+Requires-Dist: psycopg2==2.9.10
+Requires-Dist: pandas==2.2.3
+Requires-Dist: SQLAlchemy==2.0.41

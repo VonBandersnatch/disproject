@@ -1,5 +1,5 @@
 [project]
-name = "ft"
+name = "todos"
 version = "1.0.0"
 description = "Voting data from Folketinget."
 dependencies = [

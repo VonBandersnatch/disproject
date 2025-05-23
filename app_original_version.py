@@ -1,9 +1,6 @@
 from flask import Flask
 from database import init_db
 from controllers import todo, category
-import psycopg2
-import os
-import pandas as pd
 
 init_db()
 
