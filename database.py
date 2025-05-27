@@ -5,7 +5,7 @@ import pandas as pd
 # Try to get from system enviroment variable
 # Set your Postgres user and password as second arguments of these two next function calls
 user = os.environ.get('PGUSER', 'postgres')
-password = os.environ.get('PGPASSWORD', 'disuser')
+password = os.environ.get('PGPASSWORD', 'disuser') 
 host = os.environ.get('HOST', '127.0.0.1')
 
 def db_connection():
@@ -37,6 +37,7 @@ def init_db():
     todos = [('Assignment 1', 'DIS'), ('Groceries', 'House chores'), ('Assignment 2', 'DIS'), ('Project', 'DIS')]
     for (todo, category) in todos:
         cur.execute('INSERT INTO todos (todo_text, category_id) VALUES (%s, (SELECT id FROM categories WHERE category_name = %s)) ON CONFLICT DO NOTHING', (todo, category))
+
 
     df_PartiStemmer = pd.DataFrame()
     df_PartiStemmer = pd.read_csv("Partistemmer_v3.csv", index_col=False)

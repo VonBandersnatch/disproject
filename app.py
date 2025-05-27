@@ -1,6 +1,6 @@
 from flask import Flask
 from database import init_db
-from controllers import todo, category
+from controllers import todo, category, bills
 import psycopg2
 import os
 import pandas as pd
@@ -15,3 +15,4 @@ def hello_world():
 
 app.register_blueprint(todo.bp)
 app.register_blueprint(category.bp)
+app.register_blueprint(bills.bp)
