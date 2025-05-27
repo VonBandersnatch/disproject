@@ -35,7 +35,7 @@ services:
       - HOST='database'
     ports:
       # This makes the port 5000 accessible outside of the docker
-      - "8000:8000"
+      - "5000:5000"
     links:
       - database
 volumes:
