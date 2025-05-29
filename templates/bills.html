@@ -5,37 +5,29 @@
 <h1>Afstemninger</h1>
 
 
-<form method="POST" action="/todo">
-    <input type="text" name="new_todo" placeholder="Add another todo here" class="form-input" required>
-    Category<SELECT name="category_todo">
-    {% for category in categories %}
-        <OPTION value={{category.id}}>{{category.name}}</option>
+<form method="POST" action="/bills">
+    <label for="choose_party">Party</label>
+    <SELECT name="choose_party" id="choose_party">
+    {% for i in parties %}
+        <OPTION value={{i.parti}}>{{i.parti}}</option>
     {% endfor %}
     </SELECT>
-    <input type="submit" value="Add" class="btn">
+
+    <label for="searched_for">Search topic</label>
+    <input type="text" name="searched_for" id="searched_for" placeholder="Search topic">
+
+    <input type="submit" value="Choose" class="btn">
 </form>
 
-<form method="POST" action="/todo">
-    <input type="text" name="new_todo" placeholder="Add another todo here" class="form-input" required>
-    Category<SELECT name="category_todo">
-    {% for category in categories %}
-        <OPTION value={{category.id}}>{{category.name}}</option>
-    {% endfor %}
-    </SELECT>
-    <input type="submit" value="Add" class="btn">
-</form>
-
-
+<a>Chosen party: {{ chosen_party }}</a>
 
 <table border="1">
     <tr>
-        <th>Parti</th>
         <th>Stemme</th>
         <th>Lovforslag</th>
     </tr>
     {% for i in bills %}
         <tr>
-            <td>{{ i.parti }}</td>
             <td>{{ i.stemme }}</td>
             <td>{{i.lovforslag}}</td> 
         </tr>
