@@ -94,9 +94,9 @@
             </div>
             
             <div class="form-group">
-                <label for="dropdown_option">Select Option:</label>
+                <label for="dropdown_option">Select party:</label>
                 <select id="dropdown_option" name="dropdown_option">
-                    <option value="">-- Choose an option --</option>
+                    <option value="">-- Please pick a party --</option>
                     {% for value, label in dropdown_options %}
                         <option value="{{ value }}" 
                                 {% if value == selected_option %}selected{% endif %}>
