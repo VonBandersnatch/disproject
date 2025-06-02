@@ -10,13 +10,13 @@ init_db()
 
 app = Flask(__name__)
 
-@app.route("/")
-def hello_world():
-    return "<p>Hello, please click </p> <a href='http://127.0.0.1:5000/bills' class='register-link'>here</a>"
+#@app.route("/")
+#def hello_world():
+#    return "<p>Hello, please click </p> <a href='http://127.0.0.1:5000/bills' class='register-link'>here</a>"
 
 
 
-app.register_blueprint(todo.bp)
-app.register_blueprint(category.bp)
+#app.register_blueprint(todo.bp)
+#app.register_blueprint(category.bp)
 app.register_blueprint(bills.bp)
-app.register_blueprint(ft.bp)
+#app.register_blueprint(ft.bp)

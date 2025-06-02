@@ -4,6 +4,7 @@ from models.bills import list_bills, list_parties, party_vote
 
 bp = Blueprint('bills', __name__, url_prefix='/')
 
+@bp.route('/', methods=['GET', 'POST'])
 @bp.route('/bills', methods=['GET', 'POST'])
 def bills():
     bills = []
