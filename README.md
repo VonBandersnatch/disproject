@@ -2,6 +2,7 @@
 Blok4 DIS project
 
 # How to launch the app: 
+* Requires Windows platform (cf technical requirements)  
 * Clone git to local repository on your machine (https://github.com/VonBandersnatch/disproject)
 * Launch Docker
 * Navigate to root of the cloned git in terminal/Powershell 
@@ -14,10 +15,18 @@ Blok4 DIS project
     - Select the name of the party in the dropdown (SELECT UNIQUE)
     - Optional: Select to see only votes for or against 
     - Optional: Enter a search string to filter to bills only containing the string. (Using REGEX)
-* This will display the final bills voted on by the selected party, including any optional filters.   
+* This will display the final bills voted on by the selected party, including any optional filters.
+* Certain parties, e.g. those from Greenland or a party without active mandates, may appear with empty voting records.    
 
 # Technical Requirements:
-* Windows platform 
+* Windows platform required. To try on macOS/Linux: 
+    - Set port to 5001 in docker-compose.yml
+    - Change web enviroment in docker-compose.yml to:
+        - POSTGRES_USER='postgres'  
+        - POSTGRES_PASSWORD='123'
+        - POSTGRES_HOST='database'
+    - Wrap database connection statements in try statements if necessary
+    - Allow entrypoint.sh access by running: "chmod +x entrypoint.sh"
 * Git installed 
 * Docker installed
 * Python installed
