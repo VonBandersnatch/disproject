@@ -11,8 +11,8 @@ Blok4 DIS project
 # Using the app:
 * To see which law proposal bills have been voted on by a political party in the current sitting of parliament:
     - Select the name of the party in the dropdown (SELECT UNIQUE)
-    - Optional: Select to see only votes for or against (Using REGEX)
-    - Optional: Enter a search string to filter to bills only containing the string. 
+    - Optional: Select to see only votes for or against 
+    - Optional: Enter a search string to filter to bills only containing the string. (Using REGEX)
 * This will display the final bills voted on by the selected party, including any optional filters.   
 
 # Technical Requirements:
