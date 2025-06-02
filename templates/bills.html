@@ -1,8 +1,77 @@
 <!doctype html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .search-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        input[type="text"]:focus, select:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+        .search-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .search-btn:hover {
+            background-color: #45a049;
+        }
+        .results-container {
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .result-item {
+            padding: 15px;
+            border-bottom: 2px solid #c15d5d;
+            margin-bottom: 10px;
+        }
+        .result-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
 <title>Bills:</title>
 
 <body>
-<h1>Afstemninger</h1>
+<h1>Votes</h1>
 
 
 <form method="POST" action="/bills">
@@ -15,6 +84,16 @@
 
     <label for="searched_for">Search topic</label>
     <input type="text" name="searched_for" id="searched_for" placeholder="Search topic">
+    
+    <label for="party_vote">Voted</label>
+    <SELECT name="party_vote" id="party_vote">
+        <OPTION value="" {% if vote == ""%}selected{% endif %}>All votes</OPTION>
+        {% for i in stemme %}
+            <option value="{{ i.stemme }}" {% if vote == i.stemme %}selected{% endif %}>
+                {{ i.stemme }}
+            </option>
+        {% endfor %}
+    </SELECT>
 
     <input type="submit" value="Choose" class="btn">
 </form>
