@@ -29,13 +29,13 @@ services:
     volumes:
       - ./:/code
     environment:
-      - PGPUSER='postgres'
-      - PGPASSWORD='123'
+      - POSTGRES_USER='postgres'
+      - POSTGRES_PASSWORD='123'
       # Setting the host in this enviroment variable is very important as docker sets the address of the database
-      - HOST='database'
+      - POSTGRES_HOST='database'
     ports:
       # This makes the port 5000 accessible outside of the docker
-      - "5000:5000"
+      - "5001:5000"
     links:
       - database
 volumes:
