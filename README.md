@@ -6,7 +6,8 @@ Blok4 DIS project
 * Launch Docker
 * Navigate to root of the cloned git in terminal/Powershell 
 * Execute with "docker compose up" from command line
-* Go to browser - if the app doesn't launch, go to 127.0.0.1:5000/bills 
+* Go to browser - if the app doesn't launch, go to 127.0.0.1:5000/bills
+* Optional: Delete __pycache__ directory from time to time 
 
 # Using the app:
 * To see which law proposal bills have been voted on by a political party in the current sitting of parliament:
