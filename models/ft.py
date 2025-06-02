@@ -11,7 +11,7 @@ def list_parties():
     #drop down menu
     conn = db_connection()
     cur = conn.cursor()
-    cur.execute("SELECT DISTINCT parti FROM Partistemmer")
+    cur.execute("SELECT DISTINCT parti FROM PartiStemmer")
     db_parties = cur.fetchall()
 
     parties = []
