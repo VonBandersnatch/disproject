@@ -77,9 +77,12 @@
 <form method="POST" action="/bills">
     <label for="choose_party">Party</label>
     <SELECT name="choose_party" id="choose_party">
-    {% for i in parties %}
-        <OPTION value={{i.parti}}>{{i.parti}}</option>
-    {% endfor %}
+        <OPTION value="" {% if chosen_party == ""%}selected{% endif %}>All parties</OPTION>
+        {% for i in parties %}
+            <option value="{{ i.parti }}" {% if chosen_party == i.parti %}selected{% endif %}>
+                {{ i.parti }}
+            </option>
+        {% endfor %}
     </SELECT>
 
     <label for="searched_for">Search topic</label>
