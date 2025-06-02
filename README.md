@@ -21,11 +21,6 @@ Blok4 DIS project
 # Technical Requirements:
 * Windows platform required. To try on macOS/Linux: 
     - Set port to 5001 in docker-compose.yml
-    - Change web enviroment in docker-compose.yml to:
-        - POSTGRES_USER='postgres'  
-        - POSTGRES_PASSWORD='123'
-        - POSTGRES_HOST='database'
-    - Wrap database connection statements in try statements if necessary
     - Allow entrypoint.sh access by running: "chmod +x entrypoint.sh"
 * Git installed 
 * Docker installed
