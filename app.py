@@ -12,7 +12,11 @@ app = Flask(__name__)
 
 #@app.route("/")
 #def hello_world():
+<<<<<<< Updated upstream
 #    return "<p>Hello, please click </p> <a href='http://127.0.0.1:5000/bills' class='register-link'>here</a>"
+=======
+#    return "<p>Hello, World!</p>"
+>>>>>>> Stashed changes
 
 
 

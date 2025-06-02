@@ -4,7 +4,7 @@ from models.ft import list_parties
 
 bp = Blueprint('ft', __name__, url_prefix='/')
 partylist = list_parties()
-@bp.route('/ft', methods=['GET','POST'])
+@bp.route('/', methods=['GET','POST']) #slettet /ft
 
 
 def index():
