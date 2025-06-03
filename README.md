@@ -41,5 +41,5 @@ Blok4 DIS project
 * The database contains 4 joined tables (relations). 
 * When running the app SQL statements are executed, each of which impose limiting conditions in the WHERE statements, ensuring only final votes for law bills are presented to the user.   
 
-![Project Diagram](.\\er_diagram.png)
+![Project Diagram](er_diagram.png)
 
